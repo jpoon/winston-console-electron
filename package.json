@@ -1,5 +1,5 @@
 {
-  "name": "winston-console-electron",
+  "name": "winston-console-for-electron",
   "version": "1.0.0",
   "description": "Winston Transport for Electron applications to write to console",
   "main": "index.ts",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpoon/winston-console-electron.git"
+    "url": "git+https://github.com/jpoon/winston-console-for-electron.git"
   },
   "author": "Jason Poon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jpoon/winston-console-electron/issues"
+    "url": "https://github.com/jpoon/winston-console-for-electron/issues"
   },
-  "homepage": "https://github.com/jpoon/winston-console-electron#readme",
+  "homepage": "https://github.com/jpoon/winston-console-for-electron#readme",
   "dependencies": {
-    "winston-transport": "^4.1.0"
+    "winston-transport": "4.1.0"
   }
 }

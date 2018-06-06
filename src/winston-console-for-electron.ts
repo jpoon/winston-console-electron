@@ -1,12 +1,12 @@
 import { LEVEL, MESSAGE } from "triple-beam";
 import * as TransportStream from "winston-transport";
 
-export interface ElectronConsoleOptions extends TransportStream.TransportStreamOptions {
+export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
   stderrLevels: string[]
 }
 
-export class ElectronConsole extends TransportStream {
-  private name = 'console-electron';
+export class ConsoleForElectron extends TransportStream {
+  private name = 'console-for-electron';
   private stderrLevels : Set<string> | {};
 
   /**
@@ -14,7 +14,7 @@ export class ElectronConsole extends TransportStream {
    * persisting log messages and metadata to a terminal or TTY.
    * @param {!Object} [options={}] - Options for this instance.
    */
-  constructor(options?: ElectronConsoleOptions) {
+  constructor(options?: ConsoleForElectronOptions) {
     super(options);
     this.stderrLevels = this._stringArrayToSet(options.stderrLevels);
   }
@@ -23,12 +23,8 @@ export class ElectronConsole extends TransportStream {
    * Core logging method exposed to Winston.
    * @param {Object} info - TODO: add param description.
    * @param {Function} callback - TODO: add param description.
-   * @returns {undefined}
    */
-  public log(info: object, callback: Function): undefined {
-    //setImmediate(() => super.emit('logged', info));
-
-    // Remark: what if there is no raw...?
+  public log(info: object, callback: Function) {
     if (this.stderrLevels[info[LEVEL]]) {
       // console.error adds a newline
       console.error(info[MESSAGE]);
@@ -51,9 +47,7 @@ export class ElectronConsole extends TransportStream {
    * Returns a Set-like object with strArray's elements as keys (each with the
    * value true).
    * @param {Array} strArray - Array of Set-elements as strings.
-   * @param {?string} [errMsg] - Custom error message thrown on invalid input.
-   * @returns {Object} - TODO: add return description.
-   * @private
+   * @returns {Set<string>} - Set of keys
    */
   _stringArrayToSet(strArray: Array<string>) : Set<string> | {} {
     if (!strArray) {
