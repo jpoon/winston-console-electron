@@ -1,7 +1,7 @@
 {
   "name": "winston-console-for-electron",
   "version": "0.0.1",
-  "description": "Winston Transport for Electron applications to write to console",
+  "description": "Winston Console Transport for Electron applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
