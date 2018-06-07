@@ -1,9 +1,12 @@
 {
   "name": "winston-console-for-electron",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Winston Transport for Electron applications to write to console",
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +21,10 @@
   "homepage": "https://github.com/jpoon/winston-console-for-electron#readme",
   "dependencies": {
     "winston-transport": "4.1.0"
+  },
+  "devDependencies": {
+    "@types/logform": "1.2.0",
+    "@types/node": "9.6.20",
+    "typescript": "2.9.1"
   }
 }

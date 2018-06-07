@@ -1,1 +1,2 @@
-# winston-console-electron
+# winston-console-for-electron
+
