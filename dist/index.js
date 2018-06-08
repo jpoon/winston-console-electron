@@ -18,7 +18,7 @@ class ConsoleForElectron extends TransportStream {
      * @param {Function} callback
      */
     log(info, callback) {
-        if (this.stderrLevels[info[triple_beam_1.LEVEL]]) {
+        if (this.stderrLevels.has(info[triple_beam_1.LEVEL])) {
             console.error(info[triple_beam_1.MESSAGE]);
         }
         else {
@@ -29,16 +29,16 @@ class ConsoleForElectron extends TransportStream {
         }
     }
     /**
-     * Convert stderrLevels into an Object for faster key-lookup times than an
-     * Array. stderrLevels defaults to ['error', 'debug']
+     * Convert stderrLevels into a Set
+     * stderrLevels defaults to ['error', 'debug']
      * @param {ConsoleForElectronOptions} options - Options for this instance.
      * @returns {string[]} - Set of stdErr levels
      */
     _getStderrLevels(options) {
         if (options === undefined || options.level === undefined) {
-            return ['error', 'debug'];
+            return new Set(['error', 'debug']);
         }
-        else if (!(Array.isArray(options.level))) {
+        if (!(Array.isArray(options.level))) {
             throw new Error('Cannot set stderrLevels to type other than Array');
         }
         return this._stringArrayToSet(options.level);
@@ -51,7 +51,7 @@ class ConsoleForElectron extends TransportStream {
      */
     _stringArrayToSet(strArray) {
         if (!strArray) {
-            return [];
+            return new Set();
         }
         if (!Array.isArray(strArray)) {
             throw new Error('Cannot make set from type other than Array of string elements');
@@ -62,7 +62,7 @@ class ConsoleForElectron extends TransportStream {
             }
             set[el] = true;
             return set;
-        }, []);
+        }, new Set());
     }
 }
 exports.ConsoleForElectron = ConsoleForElectron;

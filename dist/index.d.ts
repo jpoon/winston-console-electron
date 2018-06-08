@@ -17,8 +17,8 @@ export declare class ConsoleForElectron extends TransportStream {
      */
     log(info: object, callback: Function): void;
     /**
-     * Convert stderrLevels into an Object for faster key-lookup times than an
-     * Array. stderrLevels defaults to ['error', 'debug']
+     * Convert stderrLevels into a Set
+     * stderrLevels defaults to ['error', 'debug']
      * @param {ConsoleForElectronOptions} options - Options for this instance.
      * @returns {string[]} - Set of stdErr levels
      */
