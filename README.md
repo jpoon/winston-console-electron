@@ -1,3 +1,5 @@
+[![NPM version](https://badge.fury.io/js/winston-console-for-electron.svg)](https://badge.fury.io/js/winston-console-for-electron)
+
 # winston-console-for-electron
 
 A modified version of Winston's [Console Transport](https://github.com/winstonjs/winston/blob/master/docs/transports.md#console-transport) to support Electron applications. Created mainly for use in [VSCodeVim](https://github.com/vscodevim/vim), an extension for VSCode, but it's generic enough to be used for other Electron applications.
