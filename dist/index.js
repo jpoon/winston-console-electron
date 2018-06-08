@@ -30,13 +30,13 @@ class ConsoleForElectron extends TransportStream {
     }
     /**
      * Convert stderrLevels into a Set
-     * stderrLevels defaults to ['error', 'debug']
+     * stderrLevels defaults to ['error']
      * @param {ConsoleForElectronOptions} options - Options for this instance.
      * @returns {string[]} - Set of stdErr levels
      */
     _getStderrLevels(options) {
         if (options === undefined || options.level === undefined) {
-            return new Set(['error', 'debug']);
+            return new Set(['error']);
         }
         if (!(Array.isArray(options.level))) {
             throw new Error('Cannot set stderrLevels to type other than Array');
