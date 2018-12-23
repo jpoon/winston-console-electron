@@ -40,4 +40,4 @@ let logger = winston.createLogger({
 ## Inspirations/Alternatives
 
 * https://github.com/dustinblackman/winston-electron - does not support Winston 3.0
-* https://www.npmjs.com/package/winston-electron-console - looked sketch as source code is nowhere to be found
+* https://www.npmjs.com/package/winston-electron-console - looked sketchy; source code is nowhere to be found
