@@ -2,7 +2,7 @@ import { LEVEL, MESSAGE } from "triple-beam";
 import * as TransportStream from "winston-transport";
 
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
-  stderrLevels: string[]
+  stderrLevels?: string[]
 }
 
 export class ConsoleForElectron extends TransportStream {

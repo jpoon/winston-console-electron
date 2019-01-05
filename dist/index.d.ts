@@ -1,6 +1,6 @@
 import * as TransportStream from "winston-transport";
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
-    stderrLevels: string[];
+    stderrLevels?: string[];
 }
 export declare class ConsoleForElectron extends TransportStream {
     private stderrLevels;
