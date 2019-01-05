@@ -10,7 +10,7 @@ class ConsoleForElectron extends TransportStream {
      */
     constructor(options) {
         super(options);
-        this.stderrLevels = this._getStderrLevels(options);
+        this.stderrLevels = this._getStderrLevels(options.stderrLevels);
     }
     /**
      * Core logging method exposed to Winston.
@@ -34,14 +34,14 @@ class ConsoleForElectron extends TransportStream {
      * @param {ConsoleForElectronOptions} options - Options for this instance.
      * @returns {string[]} - Set of stdErr levels
      */
-    _getStderrLevels(options) {
-        if (options === undefined || options.level === undefined) {
+    _getStderrLevels(stdErrLevels) {
+        if (stdErrLevels === undefined) {
             return new Set(['error']);
         }
-        if (!(Array.isArray(options.level))) {
+        if (!(Array.isArray(stdErrLevels))) {
             throw new Error('Cannot set stderrLevels to type other than Array');
         }
-        return this._stringArrayToSet(options.level);
+        return this._stringArrayToSet(stdErrLevels);
     }
     /**
      * Returns a Set-like object with strArray's elements as keys (each with the

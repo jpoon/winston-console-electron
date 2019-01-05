@@ -15,7 +15,7 @@ export class ConsoleForElectron extends TransportStream {
    */
   constructor(options?: ConsoleForElectronOptions) {
     super(options);
-    this.stderrLevels = this._getStderrLevels(options);
+    this.stderrLevels = this._getStderrLevels(options.stderrLevels);
   }
 
   /**
@@ -41,16 +41,16 @@ export class ConsoleForElectron extends TransportStream {
    * @param {ConsoleForElectronOptions} options - Options for this instance.
    * @returns {string[]} - Set of stdErr levels
    */
-  private _getStderrLevels(options?: ConsoleForElectronOptions): Set<string> {
-    if (options === undefined || options.level === undefined) {
+  private _getStderrLevels(stdErrLevels?: string[]): Set<string> {
+    if (stdErrLevels === undefined) {
       return new Set(['error'])
     }
 
-    if (!(Array.isArray(options.level))) {
+    if (!(Array.isArray(stdErrLevels))) {
       throw new Error('Cannot set stderrLevels to type other than Array');
     }
 
-    return this._stringArrayToSet(options.level);
+    return this._stringArrayToSet(stdErrLevels);
   }
 
   /**
