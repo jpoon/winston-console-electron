@@ -2,11 +2,13 @@ import { LEVEL, MESSAGE } from "triple-beam";
 import * as TransportStream from "winston-transport";
 
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
-  stderrLevels?: string[]
+  prefix?: string
+  stderrLevels?: string[],
 }
 
 export class ConsoleForElectron extends TransportStream {
-  private stderrLevels: Set<string>;
+  private readonly prefix?: string;
+  private readonly stderrLevels: Set<string>;
 
   /**
    * Constructor function for the ConsoleForElectron transport object responsible for
@@ -15,6 +17,7 @@ export class ConsoleForElectron extends TransportStream {
    */
   constructor(options?: ConsoleForElectronOptions) {
     super(options);
+    this.prefix = options.prefix;
     this.stderrLevels = this._getStderrLevels(options.stderrLevels);
   }
 
@@ -24,10 +27,15 @@ export class ConsoleForElectron extends TransportStream {
    * @param {Function} callback 
    */
   public log(info: object, callback: Function) {
+    let message = info[MESSAGE];
+    if (this.prefix) {
+      message = this.prefix + ': ' + message;
+    }
+
     if (this.stderrLevels.has(info[LEVEL])) {
-      console.error(info[MESSAGE]);
+      console.error(message);
     } else {
-      console.log(info[MESSAGE]);
+      console.log(message);
     }
 
     if (callback) {

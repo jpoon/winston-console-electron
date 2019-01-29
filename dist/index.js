@@ -10,6 +10,7 @@ class ConsoleForElectron extends TransportStream {
      */
     constructor(options) {
         super(options);
+        this.prefix = options.prefix;
         this.stderrLevels = this._getStderrLevels(options.stderrLevels);
     }
     /**
@@ -18,11 +19,15 @@ class ConsoleForElectron extends TransportStream {
      * @param {Function} callback
      */
     log(info, callback) {
+        let message = info[triple_beam_1.MESSAGE];
+        if (this.prefix) {
+            message = this.prefix + ': ' + message;
+        }
         if (this.stderrLevels.has(info[triple_beam_1.LEVEL])) {
-            console.error(info[triple_beam_1.MESSAGE]);
+            console.error(message);
         }
         else {
-            console.log(info[triple_beam_1.MESSAGE]);
+            console.log(message);
         }
         if (callback) {
             callback();

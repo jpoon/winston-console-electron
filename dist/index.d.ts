@@ -1,9 +1,11 @@
 import * as TransportStream from "winston-transport";
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
+    prefix?: string;
     stderrLevels?: string[];
 }
 export declare class ConsoleForElectron extends TransportStream {
-    private stderrLevels;
+    private readonly prefix?;
+    private readonly stderrLevels;
     /**
      * Constructor function for the ConsoleForElectron transport object responsible for
      * persisting log messages and metadata to a terminal.

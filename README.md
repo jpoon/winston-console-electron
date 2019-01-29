@@ -35,7 +35,8 @@ let logger = winston.createLogger({
 * __depth__ Numeric indicating how many times to recurse while formatting the object with `util.inspect` (only used with `prettyPrint: true`) (default null, unlimited)
 * __showLevel:__ Boolean flag indicating if we should prepend output with level (default true).
 * __formatter:__ If function is specified, its return value will be used instead of default output. (default undefined)
-* __stderrLevels__ Array of strings containing the levels to log to stderr instead of stdout, for example `['error', 'debug', 'info']`. (default `['error', 'debug']`)
+* __stderrLevels:__ Array of strings containing the levels to log to stderr instead of stdout, for example `['error', 'debug', 'info']`. (default `['error', 'debug']`)
+* __prefix:__ Prefix to log
 
 ## Inspirations/Alternatives
 
