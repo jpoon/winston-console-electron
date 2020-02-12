@@ -1,5 +1,5 @@
 import { LEVEL, MESSAGE } from "triple-beam";
-import * as TransportStream from "winston-transport";
+import TransportStream from "winston-transport";
 
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
   prefix?: string
@@ -24,7 +24,7 @@ export class ConsoleForElectron extends TransportStream {
   /**
    * Core logging method exposed to Winston.
    * @param {Object} info
-   * @param {Function} callback 
+   * @param {Function} callback
    */
   public log(info: object, callback: Function) {
     let message = info[MESSAGE];
@@ -45,7 +45,7 @@ export class ConsoleForElectron extends TransportStream {
 
   /**
    * Convert stderrLevels into a Set
-   * stderrLevels defaults to ['error'] 
+   * stderrLevels defaults to ['error']
    * @param {ConsoleForElectronOptions} options - Options for this instance.
    * @returns {string[]} - Set of stdErr levels
    */
@@ -83,6 +83,6 @@ export class ConsoleForElectron extends TransportStream {
       set[el] = true;
 
       return set;
-    }, new Set());
+    }, new Set() as Set<string>);
   }
 }
