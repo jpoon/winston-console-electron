@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/jpoon/winston-console-for-electron#readme",
   "dependencies": {
-    "winston-transport": "4.1.0"
+    "logform": "^2.1.2",
+    "winston-transport": "^4.3.0"
   },
   "devDependencies": {
-    "@types/logform": "1.2.0",
-    "@types/node": "10.3.2",
-    "typescript": "2.9.1"
+    "@types/node": "^12.12.21",
+    "typescript": "^3.7.5"
   }
 }

@@ -1,4 +1,4 @@
-import * as TransportStream from "winston-transport";
+import TransportStream from "winston-transport";
 export interface ConsoleForElectronOptions extends TransportStream.TransportStreamOptions {
     prefix?: string;
     stderrLevels?: string[];

@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
+    "target": "esNext",
     "outDir": "./dist",
     "moduleResolution": "node",
     "declaration": true,
-    "sourceMap": true,
+	"sourceMap": true,
+	"esModuleInterop": true
   },
   "include": [
     "test/**/*.ts",

@@ -1,8 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const triple_beam_1 = require("triple-beam");
-const TransportStream = require("winston-transport");
-class ConsoleForElectron extends TransportStream {
+const winston_transport_1 = __importDefault(require("winston-transport"));
+class ConsoleForElectron extends winston_transport_1.default {
     /**
      * Constructor function for the ConsoleForElectron transport object responsible for
      * persisting log messages and metadata to a terminal.
