@@ -1,6 +1,6 @@
 {
   "name": "winston-console-for-electron",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Winston Console Transport for Electron applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
